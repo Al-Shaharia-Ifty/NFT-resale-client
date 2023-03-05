@@ -28,8 +28,16 @@ const RiseNFT = () => {
             </p>
           </div>
         </div>
-        <div className="w-full lg:w-2/5 back-img bg-no-repeat bg-right h-[670px] flex items-center justify-center">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="500"
+          data-aso-duration="2000"
+          className="w-full lg:w-2/5 back-img bg-no-repeat bg-right h-[670px] flex items-center justify-center"
+        >
           <img
+            data-aos="fade-right"
+            data-aos-delay="500"
+            data-aso-duration="2000"
             className="w-80 lg:relative lg:right-[-250px] rounded-lg"
             src={img1}
             alt=""

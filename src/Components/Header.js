@@ -7,6 +7,8 @@ import img2 from "../Assets/15.jpg";
 import img3 from "../Assets/16.jpg";
 import img4 from "../Assets/17.jpg";
 import img5 from "../Assets/18.jpg";
+import "swiper/css";
+import "swiper/css/effect-cards";
 
 const Header = () => {
   return (
@@ -29,8 +31,8 @@ const Header = () => {
         </div>
         <div
           data-aos="fade-left"
-          data-aos-delay="300"
-          data-aso-duration="1000"
+          data-aos-delay="500"
+          data-aso-duration="5000"
           className="w-full lg:w-1/2"
         >
           <Swiper

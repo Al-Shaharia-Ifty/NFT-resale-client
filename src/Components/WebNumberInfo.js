@@ -25,7 +25,7 @@ const WebNumberInfo = () => {
             className="text-4xl font-bold text-purple-900"
             end={144000}
           />
-          <p>Volume Traded (ETH)</p>
+          <p>Volume Traded</p>
         </div>
       </div>
     </div>

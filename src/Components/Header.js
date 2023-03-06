@@ -13,7 +13,7 @@ import "swiper/css/effect-cards";
 const Header = () => {
   return (
     <div>
-      <div className="bg-gradient-to-br from-[#1C121E] via-[#550B75] to-[#320C69] min-h-screen lg:flex items-center">
+      <div className="bg-gradient-to-br from-[#1C121E] via-[#550B75] to-[#320C69] min-h-screen lg:flex items-center overflow-hidden">
         <div className="w-full lg:w-1/2">
           <h2 className="mx-10 lg:text-4xl md:text-3xl text-2xl text-center lg:text-start justify-center font-semibold text-gray-200 pt-[100px] lg:pt-0 pb-10">
             <Typewriter
@@ -40,6 +40,7 @@ const Header = () => {
               delay: 2500,
               disableOnInteraction: false,
             }}
+            loop={true}
             grabCursor={true}
             effect={"creative"}
             creativeEffect={{

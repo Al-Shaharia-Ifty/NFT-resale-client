@@ -1,4 +1,5 @@
 import React from "react";
+import Advertised from "../Components/Advertised";
 import Header from "../Components/Header";
 import HightQuality from "../Components/HightQuality";
 import RiseNFT from "../Components/RiseNFT";
@@ -10,6 +11,7 @@ const Home = () => {
       <Header />
       <RiseNFT />
       <HightQuality />
+      <Advertised />
       <WebNumberInfo />
     </div>
   );

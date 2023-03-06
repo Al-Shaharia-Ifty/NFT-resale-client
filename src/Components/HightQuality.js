@@ -16,7 +16,10 @@ const HightQuality = () => {
         <div className="text-white w-full lg:w-1/2 px-10 py-10 flex items-center">
           <div>
             <h2 className="text-4xl">High Quality NFT Collection</h2>
-            <div className="divider w-96"></div>
+            <div className="flex items-center text-slate-600">
+              <div className="divider w-72"></div>
+              {"//"}
+            </div>
             <p>
               High Quality NFT Collection is a website that curates a variety of
               Non-Fungible Tokens (NFTs) from some of the leading platforms in

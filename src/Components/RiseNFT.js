@@ -8,7 +8,10 @@ const RiseNFT = () => {
         <div className="lg:order-last w-full lg:w-2/5 text-white text-justify pr-10 lg:flex lg:items-center py-10 px-10">
           <div>
             <h3 className="text-2xl font-bold md:text-4xl">The Rise of NFT</h3>
-            <div className="divider w-72"></div>
+            <div className="flex items-center text-slate-600">
+              {"//"}
+              <div className="divider w-72"></div>
+            </div>
             <p>
               NFTs (non-fungible tokens) are digital assets that are unique,
               indivisible, and non-interchangeable. They have been gaining

@@ -1,6 +1,10 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
+import auth from "../firebase.init";
+import Loading from "./Loading";
 
 const Navbar = () => {
   const [stickyClass, setStickyClass] = useState("relative");
@@ -19,6 +23,10 @@ const Navbar = () => {
         : setStickyClass("relative bg-transparent pt-8");
     }
   };
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div>
       <div
@@ -27,14 +35,14 @@ const Navbar = () => {
         <div className="flex-auto flex items-center gap-4">
           <Link to={"/home"}>
             <h1 className="text-3xl font-semibold hover:text-white duration-200">
-              NFT Exchange
+              CryptoArt
             </h1>
           </Link>
           <NavLink
             to={"/home"}
             className={({ isActive }) =>
               isActive
-                ? "nav hover:text-purple-600 duration-300"
+                ? "nav text-purple-600 hover:text-purple-600 duration-300"
                 : "nav hover:text-purple-600 duration-300"
             }
           >
@@ -44,7 +52,7 @@ const Navbar = () => {
             to={"/dashboard"}
             className={({ isActive }) =>
               isActive
-                ? "nav hover:text-purple-600 duration-300"
+                ? "nav text-purple-600 hover:text-purple-600 duration-300"
                 : "nav hover:text-purple-600 duration-300"
             }
           >
@@ -54,7 +62,7 @@ const Navbar = () => {
             to={"/about"}
             className={({ isActive }) =>
               isActive
-                ? "nav hover:text-purple-600 duration-300"
+                ? "nav text-purple-600 hover:text-purple-600 duration-300"
                 : "nav hover:text-purple-600 duration-300"
             }
           >
@@ -64,34 +72,47 @@ const Navbar = () => {
             to={"/blogs"}
             className={({ isActive }) =>
               isActive
-                ? "nav hover:text-purple-600 duration-300"
+                ? "nav text-purple-600 hover:text-purple-600 duration-300"
                 : "nav hover:text-purple-600 duration-300"
             }
           >
             Blogs
           </NavLink>
         </div>
-        <div className="flex flex-auto justify-end items-center gap-4">
-          <NavLink
-            to={"/login"}
-            className={({ isActive }) =>
-              isActive
-                ? "nav hover:text-purple-600 duration-300"
-                : "nav hover:text-purple-600 duration-300"
-            }
-          >
-            Log In
-          </NavLink>
-          <NavLink
-            to={"/signUp"}
-            className={({ isActive }) =>
-              isActive
-                ? "hover:bg-purple-600 btn btn-outline"
-                : "bg-purple-600 hover:text-purple-600 btn btn-outline text-white border-0"
-            }
-          >
-            Sign Up
-          </NavLink>
+        <div>
+          {!user ? (
+            <div className="flex flex-auto justify-end items-center gap-4">
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav text-purple-600 hover:text-purple-600 duration-300"
+                    : "nav hover:text-purple-600 duration-300"
+                }
+              >
+                Log In
+              </NavLink>
+              <NavLink
+                to={"/signUp"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-purple-600 hover:bg-purple-600 btn btn-outline"
+                    : "bg-purple-600 hover:text-purple-600 btn btn-outline text-white border-0"
+                }
+              >
+                Sign Up
+              </NavLink>
+            </div>
+          ) : (
+            <div
+              onClick={() => {
+                signOut(auth);
+              }}
+              className="hover:text-red-500 duration-300 btn btn-outline btn-error"
+            >
+              Sign Out
+            </div>
+          )}
         </div>
       </div>
       <div
@@ -99,7 +120,7 @@ const Navbar = () => {
       >
         <Link to={"/home"}>
           <h1 className="text-3xl font-semibold hover:text-white duration-200">
-            NFT Exchange
+            CryptoArt
           </h1>
         </Link>
         <div>
@@ -159,18 +180,18 @@ const Navbar = () => {
                   Blogs
                 </NavLink>
               </li>
-              {/* {!user ? (
+              {!user ? (
                 <>
                   <li>
                     <NavLink
-                      to={"/signIn"}
+                      to={"/login"}
                       className={({ isActive }) =>
                         isActive
                           ? "nav text-purple-600 btn btn-ghost"
                           : "nav hover:text-purple-600 btn btn-ghost duration-300"
                       }
                     >
-                      Sign In
+                      LogIn
                     </NavLink>
                   </li>
                   <li>
@@ -197,7 +218,7 @@ const Navbar = () => {
                     Sign Out
                   </div>
                 </li>
-              )} */}
+              )}
             </ul>
           </div>
         </div>

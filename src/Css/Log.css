@@ -1,0 +1,14 @@
+.log {
+  background-image: url("../Assets/bg.jpg");
+}
+.sign {
+  background-image: url("../Assets/nft-background-1.jpg");
+}
+.glass {
+  backdrop-filter: blur(var(--glass-blur, 6px));
+  background-image: none;
+}
+.glass:hover {
+  background-image: none;
+  backdrop-filter: blur(var(--glass-blur, 6px));
+}

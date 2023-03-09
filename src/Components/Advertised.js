@@ -79,7 +79,6 @@ const Advertised = () => {
               </div>
             ))}
           </Carousel>
-          ;
         </div>
       </div>
     </div>

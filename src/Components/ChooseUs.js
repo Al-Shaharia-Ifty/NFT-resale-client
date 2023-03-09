@@ -9,8 +9,8 @@ const ChooseUs = () => {
       <h2 className="text-4xl text-center my-10 text-white">
         Why Choose <span className="text-purple-500">Us</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-20 gap-10 ">
-        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-10 lg:mx-20 gap-10 ">
+        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500 lg:mt-5 lg:mb-5">
           <h3 className="text-2xl mb-5">
             <ScrollTrigger
               onEnter={() => setCounterOn(true)}
@@ -34,7 +34,7 @@ const ChooseUs = () => {
             space that will unlock numerous benefits for our community.
           </p>
         </div>
-        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500">
+        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500 lg:mt-10">
           <h3 className="text-2xl mb-5">
             <ScrollTrigger
               onEnter={() => setCounterOn(true)}
@@ -58,7 +58,7 @@ const ChooseUs = () => {
             colorways of the artist's palette. They are drawn with great care.
           </p>
         </div>
-        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500">
+        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500 lg:mt-5 lg:mb-5">
           <h3 className="text-2xl mb-5">
             <ScrollTrigger
               onEnter={() => setCounterOn(true)}
@@ -82,7 +82,7 @@ const ChooseUs = () => {
             metaverse and game resources. Access additional drops.
           </p>
         </div>
-        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500">
+        <div className="border-2 border-gray-600 hover:border-purple-500 duration-500 p-5 text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-purple-500 lg:mt-10">
           <h3 className="text-2xl mb-5">
             <ScrollTrigger
               onEnter={() => setCounterOn(true)}

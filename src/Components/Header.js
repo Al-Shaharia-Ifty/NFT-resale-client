@@ -15,7 +15,7 @@ const Header = () => {
     <div>
       <div className="bg-gradient-to-br from-[#1C121E] via-[#550B75] to-[#320C69] min-h-screen lg:flex items-center overflow-hidden">
         <div className="w-full lg:w-1/2">
-          <h2 className="mx-10 lg:text-4xl md:text-3xl text-2xl text-center lg:text-start justify-center font-semibold text-gray-200 pt-[100px] lg:pt-0 pb-10">
+          <h2 className="mx-10 lg:text-4xl md:text-3xl text-2xl text-center lg:text-start justify-center font-semibold text-gray-200 pt-[150px] pb-[100px] lg:pt-0 lg:pb-0">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -56,19 +56,19 @@ const Header = () => {
             className="mySwiper3"
           >
             <SwiperSlide>
-              <img src={img5} alt="" />
+              <img className="w-full" src={img5} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={img2} alt="" />
+              <img className="w-full" src={img2} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={img3} alt="" />
+              <img className="w-full" src={img3} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={img4} alt="" />
+              <img className="w-full" src={img4} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={img1} alt="" />
+              <img className="w-full" src={img1} alt="" />
             </SwiperSlide>
           </Swiper>
         </div>

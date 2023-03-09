@@ -126,7 +126,7 @@ const Navbar = () => {
         <div>
           <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="btn m-1 text-2xl">
-              <i class="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars"></i>
             </label>
             <ul
               tabIndex={0}

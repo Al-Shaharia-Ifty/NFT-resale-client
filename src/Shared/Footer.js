@@ -26,11 +26,11 @@ const Footer = () => {
             </button>
           </div>
           <div className="text-2xl flex gap-5 justify-center mt-5">
-            <i class="hover:text-purple-500 duration-300 fa-brands fa-facebook"></i>
-            <i class="hover:text-purple-500 duration-300 fa-brands fa-twitter"></i>
-            <i class="hover:text-purple-500 duration-300 fa-brands fa-youtube"></i>
-            <i class="hover:text-purple-500 duration-300 fa-brands fa-instagram"></i>
-            <i class="hover:text-purple-500 duration-300 fa-brands fa-telegram"></i>
+            <i className="hover:text-purple-500 duration-300 fa-brands fa-facebook"></i>
+            <i className="hover:text-purple-500 duration-300 fa-brands fa-twitter"></i>
+            <i className="hover:text-purple-500 duration-300 fa-brands fa-youtube"></i>
+            <i className="hover:text-purple-500 duration-300 fa-brands fa-instagram"></i>
+            <i className="hover:text-purple-500 duration-300 fa-brands fa-telegram"></i>
           </div>
         </div>
       </div>

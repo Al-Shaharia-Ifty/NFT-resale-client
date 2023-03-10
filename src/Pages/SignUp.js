@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -8,13 +8,18 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
+import useToken from "../Hooks/useToken";
+import useType from "../Hooks/useType";
 import Loading from "../Shared/Loading";
 
 function SignUp() {
+  const [role, setRole] = useState("Buyer");
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user || gUser);
+  const [done] = useType(role);
   const {
     register,
     formState: { errors },
@@ -27,10 +32,10 @@ function SignUp() {
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user || gUser) {
+    if (token && done) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
+  }, [token, done, from, navigate]);
 
   if (loading || gLoading || updating) {
     return <Loading />;
@@ -50,7 +55,7 @@ function SignUp() {
   };
   return (
     <div>
-      <div className="sign flex items-center justify-center min-h-screen bg-cover bg-center overflow-hidden">
+      <div className="sign flex items-center justify-center min-h-screen bg-cover bg-center overflow-hidden py-20">
         <div className="h-auto w-full flex">
           <div className="hidden lg:w-1/2 lg:flex justify-end items-center text-7xl text-white">
             <h3>CryptoArt</h3>
@@ -84,6 +89,18 @@ function SignUp() {
                       </span>
                     )}
                   </label>
+                </div>
+                <div className="form-control w-full max-w-sm">
+                  <label className="label">
+                    <span className="label-text">User Type</span>
+                  </label>
+                  <select
+                    onChange={(e) => setRole(e.target.value)}
+                    className="select select-bordered w-full max-w-sm"
+                  >
+                    <option defaultValue>Buyer</option>
+                    <option>Seller</option>
+                  </select>
                 </div>
                 {/* Email */}
                 <div className="form-control w-full max-w-sm">

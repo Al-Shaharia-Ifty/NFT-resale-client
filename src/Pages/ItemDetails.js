@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import auth from "../firebase.init";
+import BookModal from "../Modal/BookModal";
 import Loading from "../Shared/Loading";
 
 function ItemDetails() {
+  const [openModal, setOpenModal] = useState(false);
+  const [user, loading] = useAuthState(auth);
   const params = useParams();
   const { data: itemDetails, isLoading } = useQuery({
     queryKey: ["itemDetails"],
     queryFn: () =>
-      fetch(`http://localhost:5000/item-details/${params.id}`, {
+      fetch(`https://nft-server.vercel.app/item-details/${params.id}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -16,10 +21,9 @@ function ItemDetails() {
         },
       }).then((res) => res.json()),
   });
-  if (isLoading) {
+  if (isLoading || loading) {
     return <Loading />;
   }
-  console.log(itemDetails);
   const {
     name,
     email,
@@ -37,7 +41,7 @@ function ItemDetails() {
           <img className="rounded-lg" src={img} alt="" />
         </div>
         <div className="grid grid-cols-3 rounded-lg border-2 h-full p-10 text-2xl text-white">
-          <h3>Name</h3>
+          <h3>NFT Name</h3>
           <h3 className="col-span-2">: {name}</h3>
           <h3>Email</h3>
           <h3 className="col-span-2">: {email}</h3>
@@ -52,8 +56,18 @@ function ItemDetails() {
           </h3>
           <h3>Time</h3>
           <h3 className="col-span-2">: {time}</h3>
+          <label
+            htmlFor="book-modal"
+            onClick={() => setOpenModal(name)}
+            className="btn bg-purple-600 text-white border-0"
+          >
+            Book Now
+          </label>
         </div>
       </div>
+      {openModal && (
+        <BookModal data={itemDetails} setOpenModal={setOpenModal} user={user} />
+      )}
     </div>
   );
 }

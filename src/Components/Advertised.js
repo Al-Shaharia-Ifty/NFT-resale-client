@@ -31,7 +31,7 @@ const Advertised = () => {
   const { data: allItems, isLoading } = useQuery({
     queryKey: ["allItems"],
     queryFn: () =>
-      fetch(`http://localhost:5000/items`, {
+      fetch(`https://nft-server.vercel.app/items`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

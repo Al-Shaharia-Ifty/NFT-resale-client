@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import RequireAuth from "../Layout/ReaquireAuth";
 import About from "../Pages/About";
 import Blogs from "../Pages/Blogs";
 import Home from "../Pages/Home";
@@ -19,7 +20,14 @@ export const router = createBrowserRouter([
       { path: "/blogs", element: <Blogs /> },
       { path: "/login", element: <Login /> },
       { path: "/signUp", element: <SignUp /> },
-      { path: "/item-details/:id", element: <ItemDetails /> },
+      {
+        path: "/item-details/:id",
+        element: (
+          <RequireAuth>
+            <ItemDetails />
+          </RequireAuth>
+        ),
+      },
     ],
   },
 ]);

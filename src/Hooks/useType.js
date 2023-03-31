@@ -8,18 +8,17 @@ const useType = (role) => {
   const [user] = useAuthState(auth);
   const email = user?.email;
   const name = user?.displayName;
+  fetch(`http://localhost:5000/user/${email}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (!data) {
+        setData(false);
+      } else {
+        setData(data);
+      }
+    });
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data) {
-          setData(false);
-          console.log(data);
-        } else {
-          setData(data);
-          console.log(data);
-        }
-      });
     const userType = { role: role, verified: "false", displayName: name };
     if (!data && name) {
       const url = `http://localhost:5000/user/type/${email}`;
